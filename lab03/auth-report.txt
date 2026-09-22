@@ -1,0 +1,9 @@
+Authentication Analysis
+Total Events: 184
+Failed Password Events: 124
+Accepted Password Events: 57
+Invalid User Events: 2
+
+Failed Login Sources: 124
+echo "Failed Login Sources: $(grep "Failed password" auth.log |`
+awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}' | wc -l)" >> auth-report.txt 
